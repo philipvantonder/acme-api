@@ -4,7 +4,7 @@ namespace App\Services;
 
 abstract class Employee {
 
-	public $employee;
+	protected $employee;
 
     public function __construct($employee) {
 		$this->employee = $employee;	
@@ -14,7 +14,7 @@ abstract class Employee {
 
     public function execute() {
 
-		if (!$this->hasEnded($this->employee->employmentEndDate) && $this->hasStarted($this->employee->employmentStartDate) && $this->hasBirthdayToday($this->employee->dateOfBirth)) {	
+		if (!$this->hasEnded($this->employee->employmentEndDate) && $this->hasStarted($this->employee->employmentStartDate)) {	
 			$this->executeInternal($this->employee->name . " " . $this->employee->lastname);
 		}
 
@@ -35,17 +35,6 @@ abstract class Employee {
 	{
 
 		if (date("Y-m-d", strtotime($start_date)) < date("Y-m-d")) {
-			return true;
-		}
-
-		return false;
-
-	}
-
-	public function hasBirthdayToday($dob) 
-	{
-
-		if (date("m-d", strtotime($dob)) == date("m-d")) {
 			return true;
 		}
 
