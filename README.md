@@ -7,3 +7,11 @@
 <a href="https://packagist.org/packages/laravel/framework"><img src="https://poser.pugx.org/laravel/framework/v/stable.svg" alt="Latest Stable Version"></a>
 <a href="https://packagist.org/packages/laravel/framework"><img src="https://poser.pugx.org/laravel/framework/license.svg" alt="License"></a>
 </p>
+
+## Birthday API
+
+In App\Services I have added the EmployeeBirthdayApi.php file.
+
+I have created a api route api/birthdayWishes that will trigger the Service component.
+
+For the API call to work I have used mailtrap for the email sending and there is 2 config setting that is needed ACME_SOFT_API_URL and ACME_SOFT_EMAIL.
