@@ -4,10 +4,6 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
 use App\Services\EmployeeBirthdayApi;
-use GuzzleHttp\Exception\ClientException;
-use GuzzleHttp\Exception\RequestException;
-
-function view_arr($arr) { echo "<pre>"; print_r($arr); echo "</pre>"; }
 
 /*
 |--------------------------------------------------------------------------
@@ -29,8 +25,6 @@ Route::get('/birthdayWishes', function(Request $request) {
 	try {
 
 		$client = new \GuzzleHttp\Client();
-		
-		view_arr(config('services.acme_soft.api_url'));
 
 		$employeeRequest = $client->get(config('services.acme_soft.api_url') . 'Employees', ['verify' => false]);
 		
